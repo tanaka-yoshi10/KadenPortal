@@ -15,6 +15,14 @@ javascript:
     return 10 / 2;
   });
 
+  var text = svg.selectAll("text").data(dataset).enter().append("text");
+  //svg.append("text").attr("x", 10).attr("y", 10).text("aaaa");
+  text.attr("x", function(d, i) {
+    return d[0];
+  }).attr("y", function(d, i) {
+    return d[1];
+  }).text("aaaa");
+
 h1 Listing devices
 
 table
