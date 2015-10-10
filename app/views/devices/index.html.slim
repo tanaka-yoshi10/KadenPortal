@@ -1,5 +1,5 @@
 javascript:
-  var dataset = [[3,4] ,[60,90] ,[120,150]];
+  var dataset = #{@devices.map {|device| [device.x, device.y]}};
 
   var svg = d3.select("body").append("svg");
 
