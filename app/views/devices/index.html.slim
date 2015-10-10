@@ -1,5 +1,6 @@
 h1 Device map
 #device-map
+  span#tooltip
 
 h1 Listing devices
 
@@ -48,9 +49,14 @@ javascript:
           .domain([0, height])
           .range([0, height * scale]);
 
+  var tooltip = d3.select("body").select("#tooltip")
   var color = d3.scale.category10();
   var a = svg.selectAll("circle").data(dataset).enter().append("a");
-  a.attr("xlink:href", function(d) { return d[3];});
+  a.attr("xlink:href", function(d) { return d[3];})
+  .on("mouseover", function (d) { return tooltip.style("visibility", "visible").text(d); })
+  .on("mousemove", function (d) { return tooltip.style("top", (event.pageY - 20) + "px").style("left", (event.pageX + 10) + "px"); })
+  .on("mouseout", function (d) { return tooltip.style("visibility", "hidden"); });
+
   var circle = a.append("circle");
   circle.attr("cx", function(d, i) {
     return xScale(d[0]);
