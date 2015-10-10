@@ -37,6 +37,7 @@ javascript:
     height: $('#device-map').height(),
   });
 
+  var color = d3.scale.category10();
   var circle = svg.selectAll("circle").data(dataset).enter().append("circle");
   circle.attr("cx", function(d, i) {
     return d[0];
@@ -44,10 +45,7 @@ javascript:
     return d[1];
   }).attr("r", function(d) {
     return 10;
-  }).attr("fill", "green").attr("stroke", "yellow")
-          .attr("stroke-width", function(d) {
-            return 10 / 2;
-          });
+  }).attr("fill", function(d, i) {return color(i);});
 
   var text = svg.selectAll("text").data(dataset).enter().append("text");
   text.attr("x", function(d, i) {
