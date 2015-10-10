@@ -1,5 +1,5 @@
 javascript:
-  var dataset = #{@devices.map {|device| [device.x, device.y]}};
+  var dataset = #{{@devices.map {|device| [device.x, device.y, device.name]}}};
 
   var svg = d3.select("body").append("svg");
 
@@ -18,10 +18,12 @@ javascript:
   var text = svg.selectAll("text").data(dataset).enter().append("text");
   //svg.append("text").attr("x", 10).attr("y", 10).text("aaaa");
   text.attr("x", function(d, i) {
-    return d[0];
+    return d[0] + 20;
   }).attr("y", function(d, i) {
-    return d[1];
-  }).text("aaaa");
+    return d[1] + 5;
+  }).text(function(d, i) {
+    return d[2];
+  });
 
 h1 Listing devices
 
