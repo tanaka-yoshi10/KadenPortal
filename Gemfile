@@ -34,3 +34,4 @@ group :test do
 end
 
 gem 'slim-rails'
+gem 'd3-rails'
