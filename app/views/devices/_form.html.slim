@@ -6,16 +6,16 @@
         - @device.errors.full_messages.each do |message|
           li = message
 
-  .field
+  .form-group
     = f.label :name
-    = f.text_field :name
-  .field
+    = f.text_field :name, class: "form-control"
+  .form-group
     = f.label :x
-    = f.number_field :x
-  .field
+    = f.number_field :x, class: "form-control"
+  .form-group
     = f.label :y
-    = f.number_field :y
-  .field
+    = f.number_field :y, class: "form-control"
+  .form-group
     = f.label :z
-    = f.number_field :z
+    = f.number_field :z, class: "form-control"
   .actions = f.submit

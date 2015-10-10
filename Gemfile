@@ -35,3 +35,4 @@ end
 
 gem 'slim-rails'
 gem 'd3-rails'
+gem 'bootstrap-sass'
