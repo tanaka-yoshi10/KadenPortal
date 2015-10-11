@@ -20,26 +20,20 @@ $(function () {
     var tooltip = d3.select("body").select("#tooltip")
     var color = d3.scale.category10();
     var g = svg.selectAll("circle").data(dataset).enter().append("g");
+    g.attr("transform", function(d) {return 'translate(' + xScale(d["x"]) + ',' + yScale(d["y"]) + ')'} )
     var a = g.append("a");
     a.attr("xlink:href", function (d) {
         return d["url"];
-    })
-        .on("mouseover", function (d) {
-            return tooltip.style("visibility", "visible").text(d);
-        })
-        .on("mousemove", function (d) {
-            return tooltip.style("top", (event.pageY - 20) + "px").style("left", (event.pageX + 10) + "px");
-        })
-        .on("mouseout", function (d) {
-            return tooltip.style("visibility", "hidden");
-        });
+    }).on("mouseover", function (d) {
+        return tooltip.style("visibility", "visible").text(d);
+    }).on("mousemove", function (d) {
+        return tooltip.style("top", (event.pageY - 20) + "px").style("left", (event.pageX + 10) + "px");
+    }).on("mouseout", function (d) {
+        return tooltip.style("visibility", "hidden");
+    });
 
     var circle = a.append("circle");
-    circle.attr("cx", function (d, i) {
-        return xScale(d["x"]);
-    }).attr("cy", function (d, i) {
-        return yScale(d["y"]);
-    }).attr("r", function (d) {
+    circle.attr("r", function (d) {
         return 10;
     }).attr("fill", function (d, i) {
         return color(i);
@@ -49,9 +43,9 @@ $(function () {
     text.text(function (d, i) {
         return d["name"];
     }).attr("x", function (d, i) {
-        return xScale(d["x"] + 20);
+        return xScale(20);
     }).attr("y", function (d, i) {
-        return yScale(d["y"] + 5);
+        return yScale(5);
     }).attr("fill", function (d, i) {
         return color(i);
     });
