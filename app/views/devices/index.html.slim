@@ -1,5 +1,5 @@
 h1 Device map
-#device-map data = { chart: @devices.to_json }
+#device-map data = { chart: @devices.map {|device| {x: device.x, y: device.y, name: device.name, url: device_path(device)} }.to_json }
   span#tooltip
 
 h1 Listing devices
