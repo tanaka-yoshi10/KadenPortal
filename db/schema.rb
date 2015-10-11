@@ -25,11 +25,11 @@ ActiveRecord::Schema.define(version: 20151011061320) do
   create_table "properties", force: :cascade do |t|
     t.string   "name"
     t.string   "value"
-    t.integer  "device_id_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "device_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "properties", ["device_id_id"], name: "index_properties_on_device_id_id"
+  add_index "properties", ["device_id"], name: "index_properties_on_device_id"
 
 end

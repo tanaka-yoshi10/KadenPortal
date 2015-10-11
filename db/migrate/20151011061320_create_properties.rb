@@ -3,7 +3,7 @@ class CreateProperties < ActiveRecord::Migration
     create_table :properties do |t|
       t.string :name
       t.string :value
-      t.references :device_id, index: true, foreign_key: true
+      t.references :device, index: true, foreign_key: true
 
       t.timestamps null: false
     end

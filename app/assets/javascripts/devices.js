@@ -35,7 +35,7 @@ $(function () {
     a.attr("xlink:href", function (d) {
         return d["url"];
     }).on("mouseover", function (d) {
-        return tooltip.style("visibility", "visible").text(d);
+        return tooltip.style("visibility", "visible").text(d.name + ":" + d.info);
     }).on("mousemove", function (d) {
         return tooltip.style("top", (event.pageY - 20) + "px").style("left", (event.pageX + 10) + "px");
     }).on("mouseout", function (d) {
