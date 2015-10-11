@@ -2,7 +2,7 @@ $(function () {
     dataset = $('#device-map').data('chart')
     var width = $('#device-map').width();
     var height = $('#device-map').height();
-    var scale = 1.5
+    var scale = 1.0
 
     var svg = d3.select("#device-map").append("svg").attr({
         width: $('#device-map').width(),
@@ -10,7 +10,7 @@ $(function () {
     });
 
     var xScale = d3.scale.linear()
-        .domain([0, 1000])
+        .domain([0, width])
         .range([0, width * scale]);
 
     var yScale = d3.scale.linear()
