@@ -51,5 +51,7 @@ $(function () {
         return yScale(d["y"] + 5);
     }).text(function (d, i) {
         return d["name"];
+    }).attr("fill", function (d, i) {
+        return color(i);
     });
 });
