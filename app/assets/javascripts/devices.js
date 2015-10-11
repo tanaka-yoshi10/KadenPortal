@@ -19,19 +19,20 @@ $(function () {
 
     var tooltip = d3.select("body").select("#tooltip")
     var color = d3.scale.category10();
-    var a = svg.selectAll("circle").data(dataset).enter().append("a");
+    var g = svg.selectAll("circle").data(dataset).enter().append("g");
+    var a = g.append("a");
     a.attr("xlink:href", function (d) {
         return d["url"];
     })
-    .on("mouseover", function (d) {
-        return tooltip.style("visibility", "visible").text(d);
-    })
-    .on("mousemove", function (d) {
-        return tooltip.style("top", (event.pageY - 20) + "px").style("left", (event.pageX + 10) + "px");
-    })
-    .on("mouseout", function (d) {
-        return tooltip.style("visibility", "hidden");
-    });
+        .on("mouseover", function (d) {
+            return tooltip.style("visibility", "visible").text(d);
+        })
+        .on("mousemove", function (d) {
+            return tooltip.style("top", (event.pageY - 20) + "px").style("left", (event.pageX + 10) + "px");
+        })
+        .on("mouseout", function (d) {
+            return tooltip.style("visibility", "hidden");
+        });
 
     var circle = a.append("circle");
     circle.attr("cx", function (d, i) {
@@ -44,13 +45,13 @@ $(function () {
         return color(i);
     });
 
-    var text = svg.selectAll("text").data(dataset).enter().append("text");
-    text.attr("x", function (d, i) {
+    var text = g.append("text");
+    text.text(function (d, i) {
+        return d["name"];
+    }).attr("x", function (d, i) {
         return xScale(d["x"] + 20);
     }).attr("y", function (d, i) {
         return yScale(d["y"] + 5);
-    }).text(function (d, i) {
-        return d["name"];
     }).attr("fill", function (d, i) {
         return color(i);
     });
