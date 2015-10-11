@@ -36,3 +36,4 @@ end
 gem 'slim-rails'
 gem 'd3-rails'
 gem 'bootstrap-sass'
+gem 'jquery-turbolinks'
