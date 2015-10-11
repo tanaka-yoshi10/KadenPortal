@@ -4,6 +4,15 @@ $(function () {
     var height = $('#device-map').height();
     var scale = 1.0
 
+    var drag = d3.behavior.drag()
+        .on("drag", function(d,i) {
+            d.x += d3.event.dx;
+            d.y += d3.event.dy;
+            d3.select(this).attr("transform", function(d,i){
+                return "translate(" + [ d.x,d.y ] + ")";
+            })
+        });
+
     var svg = d3.select("#device-map").append("svg").attr({
         width: $('#device-map').width(),
         height: $('#device-map').height(),
@@ -21,7 +30,7 @@ $(function () {
     var tooltip = d3.select("body").select("#tooltip")
     var color = d3.scale.category10();
     var g = svg.selectAll("circle").data(dataset).enter().append("g");
-    g.attr("transform", function(d) {return 'translate(' + xScale(d["x"]) + ',' + yScale(d["y"]) + ')'} )
+    g.attr("transform", function(d) {return 'translate(' + xScale(d["x"]) + ',' + yScale(d["y"]) + ')'}).call(drag);
     var a = g.append("a");
     a.attr("xlink:href", function (d) {
         return d["url"];
