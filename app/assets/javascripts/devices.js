@@ -8,6 +8,7 @@ $(function () {
         width: $('#device-map').width(),
         height: $('#device-map').height(),
     });
+    svg.append('image').attr("xlink:href","assets/background.png").attr("x", 0).attr("y", 0).attr("width", width).attr("height", height);
 
     var xScale = d3.scale.linear()
         .domain([0, width])
