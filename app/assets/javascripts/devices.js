@@ -23,15 +23,15 @@ $(function () {
     a.attr("xlink:href", function (d) {
         return d["url"];
     })
-        .on("mouseover", function (d) {
-            return tooltip.style("visibility", "visible").text(d);
-        })
-        .on("mousemove", function (d) {
-            return tooltip.style("top", (event.pageY - 20) + "px").style("left", (event.pageX + 10) + "px");
-        })
-        .on("mouseout", function (d) {
-            return tooltip.style("visibility", "hidden");
-        });
+    .on("mouseover", function (d) {
+        return tooltip.style("visibility", "visible").text(d);
+    })
+    .on("mousemove", function (d) {
+        return tooltip.style("top", (event.pageY - 20) + "px").style("left", (event.pageX + 10) + "px");
+    })
+    .on("mouseout", function (d) {
+        return tooltip.style("visibility", "hidden");
+    });
 
     var circle = a.append("circle");
     circle.attr("cx", function (d, i) {
