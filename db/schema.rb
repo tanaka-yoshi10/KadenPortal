@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010060022) do
+ActiveRecord::Schema.define(version: 20151011061320) do
 
   create_table "devices", force: :cascade do |t|
     t.string   "name"
@@ -21,5 +21,15 @@ ActiveRecord::Schema.define(version: 20151010060022) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "properties", force: :cascade do |t|
+    t.string   "name"
+    t.string   "value"
+    t.integer  "device_id_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "properties", ["device_id_id"], name: "index_properties_on_device_id_id"
 
 end
