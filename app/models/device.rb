@@ -1,5 +1,6 @@
 class Device < ActiveRecord::Base
   has_many :properties
+  mount_uploader :device_image, DeviceImageUploader
 
   def info
     self.properties.map { |property|

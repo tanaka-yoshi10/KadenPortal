@@ -18,4 +18,15 @@
   .form-group
     = f.label :z
     = f.number_field :z, class: "form-control"
+  .form-group
+    - if @device.device_image?
+      .thumbnail
+        = image_tag @device.device_image.url
+    = f.file_field :device_image
+    = f.hidden_field :device_image_cache
+    - if @device.device_image?
+      .checkbox
+        label
+          = f.check_box :remove_device_image
+          画像を削除する
   .actions = f.submit

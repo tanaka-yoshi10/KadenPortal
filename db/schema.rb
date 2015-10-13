@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151011061320) do
+ActiveRecord::Schema.define(version: 20151013135503) do
 
   create_table "devices", force: :cascade do |t|
     t.string   "name"
     t.integer  "x"
     t.integer  "y"
     t.integer  "z"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "device_image"
   end
 
   create_table "properties", force: :cascade do |t|
