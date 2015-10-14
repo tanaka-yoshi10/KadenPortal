@@ -7,6 +7,30 @@ p
   strong Area image:
   = @area.area_image
 
+h1 Listing devices
+
+table.table.table-striped.table-bordered
+  thead
+    tr
+      th Name
+      th X
+      th Y
+      th Z
+      th
+      th
+      th
+
+  tbody
+    - @area.devices.each do |device|
+      tr
+        td = device.name
+        td = device.x
+        td = device.y
+        td = device.z
+        td = link_to 'Show', device, class: "btn"
+        td = link_to 'Edit', edit_device_path(device), class: "btn"
+        td = link_to 'Destroy', device, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn"
+
 = link_to 'Edit', edit_area_path(@area)
 '|
 = link_to 'Back', areas_path
