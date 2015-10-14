@@ -17,6 +17,20 @@ p
   .thumbnail
     = image_tag @device.device_image.url
 
+h1 Listing properties
+
+table.table.table-striped.table-bordered
+  thead
+    tr
+      th Name
+      th Value
+
+  tbody
+    - @device.properties.each do |property|
+      tr
+        td = property.name
+        td = property.value
+
 = link_to 'Edit', edit_device_path(@device)
 '|
 = link_to 'Back', devices_path
