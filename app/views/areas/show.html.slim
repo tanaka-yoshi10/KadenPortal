@@ -1,12 +1,11 @@
 p#notice = notice
 
-p
-  strong Name:
-  = @area.name
-
-- if @area.area_image?
-  .thumbnail
-    = image_tag @area.area_image.url
+h1= @area.name
+#device-map data = { image: @area.area_image.url, chart: @area.devices.map {|device| {x: device.x, y: device.y, name: device.name, url: device_path(device), info: device.info, image: device.device_image.url } }.to_json }
+  span#tooltip
+    #tooltip-name
+    #tooltip-text
+    img#product-thumbnail
 
 h1 Listing devices
 
