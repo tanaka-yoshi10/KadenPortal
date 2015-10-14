@@ -35,7 +35,10 @@ $(function () {
     a.attr("xlink:href", function (d) {
         return d["url"];
     }).on("mouseover", function (d) {
-        return tooltip.style("visibility", "visible").text(d.name + ":" + d.info);
+        d3.select('#product-thumbnail').attr('src', d.image);
+        d3.select('#tooltip-name').text(d.name);
+        d3.select('#tooltip-text').text(d.info);
+        return tooltip.style("visibility", "visible");
     }).on("mousemove", function (d) {
         return tooltip.style("top", (event.pageY - 20) + "px").style("left", (event.pageX + 10) + "px");
     }).on("mouseout", function (d) {
