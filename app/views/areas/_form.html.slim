@@ -9,7 +9,16 @@
   .field
     = f.label :name
     = f.text_field :name
-  .field
-    = f.label :area_image
-    = f.text_field :area_image
+
+  .form-group
+    - if @area.area_image?
+      .thumbnail
+        = image_tag @area.area_image.url
+    = f.file_field :area_image
+    = f.hidden_field :area_image_cache
+    - if @area.area_image?
+      .checkbox
+        label
+          = f.check_box :remove_area_image
+          画像を削除する
   .actions = f.submit

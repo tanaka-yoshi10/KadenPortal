@@ -3,9 +3,10 @@ p#notice = notice
 p
   strong Name:
   = @area.name
-p
-  strong Area image:
-  = @area.area_image
+
+- if @area.area_image?
+  .thumbnail
+    = image_tag @area.area_image.url
 
 h1 Listing devices
 
