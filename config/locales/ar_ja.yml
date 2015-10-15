@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      area: エリア
+      device: デバイス
+      property: プロパティ
+    attributes:
+      area:
+        name: エリア名
+      device:
+        name: 名前
+        x: X座標
+        y: Y座標
+        z: Z座標
+      property:
+        name: 名前
+        value: 値
