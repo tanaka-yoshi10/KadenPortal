@@ -36,17 +36,9 @@ RSpec.describe DevicesController, type: :controller do
   # DevicesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "assigns all devices as @devices" do
-      device = Device.create! valid_attributes
-      get :index, {}, valid_session
-      expect(assigns(:devices)).to eq([device])
-    end
-  end
-
   describe "GET #show" do
     it "assigns the requested device as @device" do
-      device = Device.create! valid_attributes
+      device = create(:device)
       get :show, {:id => device.to_param}, valid_session
       expect(assigns(:device)).to eq(device)
     end
@@ -61,7 +53,7 @@ RSpec.describe DevicesController, type: :controller do
 
   describe "GET #edit" do
     it "assigns the requested device as @device" do
-      device = Device.create! valid_attributes
+      device = create(:device)
       get :edit, {:id => device.to_param}, valid_session
       expect(assigns(:device)).to eq(device)
     end

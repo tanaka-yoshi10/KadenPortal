@@ -1,12 +1,6 @@
 class DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
 
-  # GET /devices
-  # GET /devices.json
-  def index
-    @devices = Device.all
-  end
-
   # GET /devices/1
   # GET /devices/1.json
   def show
