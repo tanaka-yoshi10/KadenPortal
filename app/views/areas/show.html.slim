@@ -16,9 +16,6 @@ table.table.table-striped.table-bordered
       th Name
       th X
       th Y
-      th Z
-      th
-      th
       th
 
   tbody
@@ -28,10 +25,7 @@ table.table.table-striped.table-bordered
         td = device.name
         td = device.x
         td = device.y
-        td = device.z
         td = link_to 'Show', device, class: "btn"
-        td = link_to 'Edit', edit_device_path(device), class: "btn"
-        td = link_to 'Destroy', device, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn"
 
 = link_to 'Edit', edit_area_path(@area)
 '|
